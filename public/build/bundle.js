@@ -728,8 +728,8 @@ var app = (function () {
     			canvas_1 = element("canvas");
     			attr_dev(canvas_1, "width", /*canvasWidth*/ ctx[0]);
     			attr_dev(canvas_1, "height", /*canvasHeight*/ ctx[1]);
-    			attr_dev(canvas_1, "class", "svelte-dkugi8");
-    			add_location(canvas_1, file$1, 47, 0, 1766);
+    			attr_dev(canvas_1, "class", "svelte-3gaxpq");
+    			add_location(canvas_1, file$1, 47, 0, 1770);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -968,18 +968,16 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let main;
-    	let input;
-    	let t0;
     	let br;
-    	let t1;
+    	let t0;
     	let audio;
     	let audio_updating = false;
     	let audio_animationframe;
     	let audio_is_paused = true;
-    	let t2;
+    	let t1;
     	let canvasspectrum;
     	let updating_render;
-    	let t3;
+    	let t2;
     	let bottombar;
     	let updating_currentTime;
     	let updating_paused;
@@ -995,11 +993,11 @@ var app = (function () {
     			audio_updating = true;
     		}
 
-    		/*audio_timeupdate_handler*/ ctx[9].call(audio);
+    		/*audio_timeupdate_handler*/ ctx[8].call(audio);
     	}
 
     	function canvasspectrum_render_binding(value) {
-    		/*canvasspectrum_render_binding*/ ctx[12](value);
+    		/*canvasspectrum_render_binding*/ ctx[11](value);
     	}
 
     	let canvasspectrum_props = { volumes: /*volumes*/ ctx[0] };
@@ -1016,11 +1014,11 @@ var app = (function () {
     	binding_callbacks.push(() => bind(canvasspectrum, "render", canvasspectrum_render_binding));
 
     	function bottombar_currentTime_binding(value) {
-    		/*bottombar_currentTime_binding*/ ctx[13](value);
+    		/*bottombar_currentTime_binding*/ ctx[12](value);
     	}
 
     	function bottombar_paused_binding(value) {
-    		/*bottombar_paused_binding*/ ctx[14](value);
+    		/*bottombar_paused_binding*/ ctx[13](value);
     	}
 
     	let bottombar_props = { duration: /*duration*/ ctx[3] };
@@ -1040,47 +1038,39 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
-    			input = element("input");
-    			t0 = space();
     			br = element("br");
-    			t1 = space();
+    			t0 = space();
     			audio = element("audio");
-    			t2 = space();
+    			t1 = space();
     			create_component(canvasspectrum.$$.fragment);
-    			t3 = space();
+    			t2 = space();
     			create_component(bottombar.$$.fragment);
-    			attr_dev(input, "type", "file");
-    			attr_dev(input, "accept", ".mp3");
-    			add_location(input, file$2, 51, 4, 1462);
-    			add_location(br, file$2, 52, 4, 1526);
-    			if (/*duration*/ ctx[3] === void 0) add_render_callback(() => /*audio_durationchange_handler*/ ctx[10].call(audio));
-    			add_location(audio, file$2, 54, 4, 1587);
-    			add_location(main, file$2, 50, 0, 1451);
+    			add_location(br, file$2, 53, 4, 1630);
+    			if (/*duration*/ ctx[3] === void 0) add_render_callback(() => /*audio_durationchange_handler*/ ctx[9].call(audio));
+    			add_location(audio, file$2, 55, 4, 1693);
+    			add_location(main, file$2, 51, 0, 1545);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, input);
-    			append_dev(main, t0);
     			append_dev(main, br);
-    			append_dev(main, t1);
+    			append_dev(main, t0);
     			append_dev(main, audio);
-    			/*audio_binding*/ ctx[8](audio);
-    			append_dev(main, t2);
+    			/*audio_binding*/ ctx[7](audio);
+    			append_dev(main, t1);
     			mount_component(canvasspectrum, main, null);
-    			append_dev(main, t3);
+    			append_dev(main, t2);
     			mount_component(bottombar, main, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "input", /*handleChange*/ ctx[6], false, false, false),
     					listen_dev(audio, "timeupdate", audio_timeupdate_handler),
-    					listen_dev(audio, "durationchange", /*audio_durationchange_handler*/ ctx[10]),
-    					listen_dev(audio, "play", /*audio_play_pause_handler*/ ctx[11]),
-    					listen_dev(audio, "pause", /*audio_play_pause_handler*/ ctx[11])
+    					listen_dev(audio, "durationchange", /*audio_durationchange_handler*/ ctx[9]),
+    					listen_dev(audio, "play", /*audio_play_pause_handler*/ ctx[10]),
+    					listen_dev(audio, "pause", /*audio_play_pause_handler*/ ctx[10])
     				];
 
     				mounted = true;
@@ -1137,7 +1127,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
-    			/*audio_binding*/ ctx[8](null);
+    			/*audio_binding*/ ctx[7](null);
     			destroy_component(canvasspectrum);
     			destroy_component(bottombar);
     			mounted = false;
@@ -1175,17 +1165,17 @@ var app = (function () {
     		let source = audioCtx.createMediaElementSource(audioElement);
     		source.connect(analyser);
     		source.connect(audioCtx.destination);
-    		$$invalidate(7, data = new Uint8Array(analyser.frequencyBinCount));
+    		$$invalidate(6, data = new Uint8Array(analyser.frequencyBinCount));
     		analyser.fftSize = 4096;
     		analyser.getByteFrequencyData(data);
-    		if (data.length) $$invalidate(7, data = new Uint8Array(analyser.frequencyBinCount));
+    		if (data.length) $$invalidate(6, data = new Uint8Array(analyser.frequencyBinCount));
     	}
 
-    	function handleChange(e) {
-    		let file = e.target.files[0];
+    	function handleChange() {
+    		let file = new Audio("https://download.pariyatti.org/free/_moIbLs95/along_the_path_audio/streaming/Great_Compassion.mp3");
     		if (!file) return;
     		if (!analyser) startAnalyzer();
-    		$$invalidate(1, audioElement.src = URL.createObjectURL(file), audioElement);
+    		$$invalidate(1, audioElement.src = file.src, audioElement);
     		$$invalidate(4, paused = true);
 
     		if (animation) {
@@ -1201,13 +1191,14 @@ var app = (function () {
 
     			render();
     			analyser.getByteFrequencyData(data);
-    			$$invalidate(7, data);
+    			$$invalidate(6, data);
     			animation = requestAnimationFrame(check);
     		}
 
     		check();
     	}
 
+    	handleChange();
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -1269,7 +1260,7 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("volumes" in $$props) $$invalidate(0, volumes = $$props.volumes);
-    		if ("data" in $$props) $$invalidate(7, data = $$props.data);
+    		if ("data" in $$props) $$invalidate(6, data = $$props.data);
     		if ("animation" in $$props) animation = $$props.animation;
     		if ("audioElement" in $$props) $$invalidate(1, audioElement = $$props.audioElement);
     		if ("currentTime" in $$props) $$invalidate(2, currentTime = $$props.currentTime);
@@ -1284,7 +1275,7 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*data*/ 128) {
+    		if ($$self.$$.dirty & /*data*/ 64) {
     			$$invalidate(0, volumes = data.filter(vol => vol > 0));
     		}
     	};
@@ -1296,7 +1287,6 @@ var app = (function () {
     		duration,
     		paused,
     		render,
-    		handleChange,
     		data,
     		audio_binding,
     		audio_timeupdate_handler,

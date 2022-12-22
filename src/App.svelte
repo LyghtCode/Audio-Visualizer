@@ -37,14 +37,14 @@
         if (data.length) data = new Uint8Array(analyser.frequencyBinCount);
     }
 
-    function handleChange(e: Event) {
-        let file = (e.target as HTMLInputElement).files[0];
+    function handleChange() {
+        let file = new Audio('https://download.pariyatti.org/free/_moIbLs95/along_the_path_audio/streaming/Great_Compassion.mp3');
 
         if (!file) return;
 
         if (!analyser) startAnalyzer();
 
-        audioElement.src = URL.createObjectURL(file);
+        audioElement.src = file.src;
 
         paused = true;
 
@@ -70,10 +70,11 @@
 
         check();
     }
+    handleChange();
 </script>
 
 <main>
-    <input type="file" accept=".mp3" on:input={handleChange} />
+    <!-- <input type="url" accept=".mp3" on:input={handleChange} /> -->
     <br />
     <!-- svelte-ignore a11y-media-has-caption -->
     <audio bind:this={audioElement} bind:currentTime bind:duration bind:paused />

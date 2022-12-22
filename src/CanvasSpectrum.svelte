@@ -70,5 +70,6 @@
     canvas {
         width: 100%;
         height: calc(100vh - 80px);
+        background-color: #000;
     }
 </style>
